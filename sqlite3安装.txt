@@ -1,0 +1,8 @@
+1.从sqlite官网下载源码：
+      从源代码区下载 sqlite-autoconf-*.tar.gz。
+2.$tar xvfz sqlite-autoconf-3071502.tar.gz
+3.$cd sqlite-autoconf-3071502
+4.$./configure --prefix=/usr/local
+5.$make
+6.$make install
+7.命令行输入sqli再按Tab就可以出来sqlite3，说明安装成功
