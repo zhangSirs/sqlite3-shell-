@@ -1,0 +1,35 @@
+.dump 命令
+
+您可以在命令提示符中使用 SQLite .dump 点命令来导出完整的数据库在一个文本文件中，如下所示：
+
+$sqlite3 testDB.db .dump > testDB.sql
+
+上面的命令将转换整个 testDB.db 数据库的内容到 SQLite 的语句中，并将其转储到 ASCII 文本文件 testDB.sql 中。您可以通过简单的方式从生成的 testDB.sql 恢复，如下所示：
+
+$sqlite3 testDB.db < testDB.sql
+
+此时的数据库是空的，一旦数据库中有表和数据，您可以尝试上述两个程序。现在，让我们继续学习下一章
+
+
+1.实操：
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ sqlite3 zieckey.db .dump > te.sql
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ 
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ 
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ 
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ cat te.sql 
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE SensorData(ID INTEGER PRIMARY KEY,SensorID INTEGER,SiteNum INTEGER,Time VARCHAR(12),SensorParameter REAL);
+INSERT INTO SensorData VALUES(1,1,1,'200605011206',18.899999999999998578);
+INSERT INTO SensorData VALUES(2,1,1,'200605011306',16.399999999999998578);
+INSERT INTO SensorData VALUES(3,1,1,'200605011206',18.899999999999998578);
+INSERT INTO SensorData VALUES(4,1,1,'200605011306',16.399999999999998578);
+COMMIT;
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ 
+
+2.实操：
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ sqlite3 testDb.db < te.sql 
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ ls
+aa  insert.c  Makefile  sqlite3.c  sqlite3.h  te.sql  testDb.db  zieckey.db
+cheng@ubuntu:~/Desktop/Untitled Folder/sqlite/2$ 
+
